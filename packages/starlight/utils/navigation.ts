@@ -251,7 +251,10 @@ function sidebarFromDir(
 export function getSidebar(pathname: string, locale: string | undefined): SidebarEntry[] {
 	const routes = getLocaleRoutes(locale);
 	if (config.sidebar) {
-		return config.sidebar.map((group) => configItemToEntry(group, pathname, locale, routes));
+		const dir = pathname.split("/")[1]
+		let sidemap = config.sidebar.filter((item) => item.autogenerate.directory === dir)
+		return sidemap.map((group) => configItemToEntry(group, pathname, locale, routes));
+		// return config.sidebar.map((group) => configItemToEntry(group, pathname, locale, routes));
 	} else {
 		const tree = treeify(routes, locale || '');
 		return sidebarFromDir(tree, pathname, locale, false);
