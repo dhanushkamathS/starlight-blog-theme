@@ -1,5 +1,5 @@
 {
-  "name": "@astrojs/starlight",
+  "name": "@astrojs/starlight-blog-theme",
   "version": "0.10.2",
   "description": "Build beautiful, high-performance documentation websites with Astro",
   "scripts": {
